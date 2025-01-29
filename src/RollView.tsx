@@ -60,18 +60,20 @@ const RollView: Component<Props> = (props) => {
 	};
 
 	const handleDiceDone = async (n: number) => {
-		const total =
+		let total =
 			n + props.dc.modifiers.reduce((acc, m) => acc + m.value, 0);
 		resultTextRef!.classList.remove('critical-success');
 		resultTextRef!.classList.remove('bad');
 		if (n === 20) {
 			setResult('대성공');
 			resultTextRef!.classList.add('critical-success');
+			total = 20;
 		} else if (total >= props.dc.difficulty) {
 			setResult('성공');
 		} else if (n === 1) {
 			setResult('대실패');
 			resultTextRef!.classList.add('bad');
+			total = 1;
 		} else {
 			setResult('실패');
 			resultTextRef!.classList.add('bad');
