@@ -145,7 +145,7 @@ const EditView: Component<Props> = (props) => {
 
 				<label>
 					<div class="title"> 수정치 값 </div>
-					<input ref={modValueRef!} type="number" />
+					<input ref={modValueRef!} type="text" />
 				</label>
 
 				<label>
